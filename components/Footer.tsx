@@ -53,23 +53,22 @@ export function Footer() {
               Join
             </Button>
           </div>
-          <div className="mt-5 flex gap-3 text-xs uppercase tracking-[0.2em] text-ivory/48">
+          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-[0.16em] text-ivory/48">
             <Link href="#" className="transition hover:text-ivory">
-              IG
+              Instagram
             </Link>
             <Link href="#" className="transition hover:text-ivory">
-              TK
+              TikTok
             </Link>
             <Link href="#" className="transition hover:text-ivory">
-              PIN
+              Pinterest
             </Link>
           </div>
         </div>
       </div>
       <div className="relative border-t border-ivory/10 py-5">
-        <div className="section-shell flex flex-col gap-2 text-xs text-ivory/42 sm:flex-row sm:items-center sm:justify-between">
+        <div className="section-shell flex text-xs text-ivory/42">
           <span>© 2026 NŪRÉ. Fictional portfolio concept.</span>
-          <span>Round 1B visual direction upgrade.</span>
         </div>
       </div>
     </footer>

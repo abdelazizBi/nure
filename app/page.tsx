@@ -2,6 +2,16 @@ import type { CSSProperties } from "react";
 import { Button } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import {
+  FadeReveal,
+  FloatingParticleField,
+  HeroExperience,
+  ProductTiltCard,
+  ScentUniverseStage,
+  ShimmerLayer,
+  SprayMist,
+  StaggerReveal,
+} from "@/components/PremiumMotion";
 import { ProductVisual } from "@/components/ProductVisual";
 import {
   featuredPerfumes,
@@ -9,47 +19,6 @@ import {
   scentFamilies,
   scentRail,
 } from "@/lib/data";
-
-function MistParticles({ dense = false }: { dense?: boolean }) {
-  const particles = dense
-    ? [
-        ["8%", "18%", "7px", "10s", "-1s"],
-        ["18%", "68%", "4px", "14s", "-6s"],
-        ["32%", "28%", "9px", "12s", "-4s"],
-        ["48%", "74%", "5px", "13s", "-7s"],
-        ["62%", "18%", "6px", "11s", "-3s"],
-        ["74%", "58%", "10px", "15s", "-8s"],
-        ["88%", "31%", "5px", "10s", "-5s"],
-        ["94%", "78%", "7px", "12s", "-2s"],
-      ]
-    : [
-        ["12%", "22%", "8px", "10s", "-1s"],
-        ["28%", "68%", "5px", "12s", "-4s"],
-        ["47%", "18%", "7px", "13s", "-6s"],
-        ["67%", "35%", "9px", "11s", "-3s"],
-        ["78%", "72%", "6px", "14s", "-7s"],
-        ["90%", "28%", "4px", "10s", "-5s"],
-      ];
-
-  return (
-    <div className="mist-layer" aria-hidden="true">
-      {particles.map(([x, y, size, speed, delay]) => (
-        <span
-          key={`${x}-${y}-${size}`}
-          style={
-            {
-              "--x": x,
-              "--y": y,
-              "--size": size,
-              "--speed": speed,
-              "--delay": delay,
-            } as CSSProperties
-          }
-        />
-      ))}
-    </div>
-  );
-}
 
 function SectionIntro({
   eyebrow,
@@ -65,7 +34,7 @@ function SectionIntro({
   align?: "center" | "left";
 }) {
   return (
-    <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+    <FadeReveal className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       <p className="flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.32em] text-champagne data-[align=left]:justify-start" data-align={align}>
         <span>{eyebrow}</span>
         {arabic ? (
@@ -82,7 +51,7 @@ function SectionIntro({
           {text}
         </p>
       ) : null}
-    </div>
+    </FadeReveal>
   );
 }
 
@@ -94,14 +63,14 @@ export default function Home() {
       <div className="noise" />
       <Navbar />
 
-      <section className="relative min-h-screen overflow-hidden pt-24">
+      <HeroExperience>
         <div className="arabic-pattern" />
-        <MistParticles dense />
+        <FloatingParticleField dense />
         <div className="mist-cloud left-[-7rem] top-28 h-72 w-72" />
         <div className="mist-cloud right-[-4rem] top-52 h-96 w-96 [animation-delay:-4s]" />
 
         <div className="section-shell grid min-h-[calc(100vh-6rem)] items-center gap-8 pb-14 lg:grid-cols-[0.86fr_1.14fr]">
-          <div className="relative z-10 animate-reveal pt-10 lg:pt-0">
+          <div className="hero-copy relative z-10 animate-reveal pt-10 lg:pt-0">
             <p className="inline-flex items-center gap-3 rounded-full border border-champagne/28 bg-white/42 px-4 py-2 text-xs uppercase tracking-[0.28em] text-charcoal/62 shadow-pearl backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
               Luminous oriental minimalism
@@ -115,7 +84,9 @@ export default function Home() {
               from oud, musk, amber, saffron, rose, and desert botanicals.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button href="#collection">Explore Collection</Button>
+              <Button href="#collection" data-spray-trigger>
+                Explore Collection
+              </Button>
               <Button href="#scent-finder" variant="secondary">
                 Find Your Scent
               </Button>
@@ -134,7 +105,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative animate-reveal [animation-delay:160ms]">
+          <div className="hero-visual relative animate-reveal [animation-delay:160ms]">
             <div className="hero-stage min-h-[500px] px-4 py-8 sm:min-h-[560px] sm:px-8 lg:min-h-[700px]">
               <span className="note-chip-float left-4 top-[18%] rounded-full px-4 py-2 text-xs text-charcoal/64 [animation-delay:-1s] sm:left-8">
                 White oud
@@ -145,13 +116,19 @@ export default function Home() {
               <span className="note-chip-float bottom-[23%] left-8 rounded-full px-4 py-2 text-xs text-charcoal/64 [animation-delay:-6s]">
                 Solar musk
               </span>
+              <span className="note-chip-float right-8 bottom-[35%] rounded-full px-4 py-2 text-xs text-charcoal/64 [animation-delay:-8s]">
+                Amber air
+              </span>
+              <div data-spray-trigger className="hero-bottle-trigger relative cursor-pointer">
               <ProductVisual
                 name="NŪRÉ hero bottle"
                 imagePath="/images/nure/hero-bottle.png"
                 size="hero"
                 variant="champagne"
+                className="hero-bottle-visual"
               />
-              <div className="absolute bottom-7 left-7 right-7 grid gap-3 border-t border-champagne/20 pt-4 text-xs text-charcoal/58 sm:grid-cols-4">
+              </div>
+              <div className="hero-note-reveal absolute bottom-7 left-7 right-7 grid gap-3 border-t border-champagne/20 pt-4 text-xs text-charcoal/58 sm:grid-cols-4">
                 {["Oud", "Musk", "Amber", "Saffron"].map((note) => (
                   <span
                     key={note}
@@ -164,7 +141,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </HeroExperience>
 
       <section className="overflow-hidden border-y border-champagne/14 bg-ivory/42 py-5">
         <div className="scent-marquee gap-3">
@@ -195,17 +172,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <StaggerReveal className="mt-12 grid gap-5 md:grid-cols-3">
             {featuredPerfumes.map((perfume, index) => (
-              <article
+              <ProductTiltCard
                 key={perfume.name}
-                className="group relative overflow-hidden rounded-lg border border-white/62 bg-white/34 p-4 shadow-pearl backdrop-blur-sm transition duration-500 hover:-translate-y-2 hover:border-champagne/54 hover:bg-white/48 hover:shadow-glow"
               >
-                <div className="absolute inset-x-6 top-4 h-px bg-gradient-to-r from-transparent via-champagne/44 to-transparent opacity-0 transition group-hover:opacity-100" />
+                <div className="card-lux-glow" aria-hidden="true" />
+                <div className="absolute inset-x-6 top-4 h-px bg-gradient-to-r from-transparent via-champagne/44 to-transparent opacity-0 transition duration-700 group-hover:opacity-100" />
                 <div
-                  className={`relative overflow-hidden rounded-lg bg-gradient-to-br ${perfume.tone}`}
+                  className={`product-card-stage relative overflow-hidden rounded-lg bg-gradient-to-br ${perfume.tone}`}
                 >
                   <div className="absolute inset-x-8 bottom-8 h-8 rounded-full bg-charcoal/10 blur-xl" />
+                  <ShimmerLayer />
                   <ProductVisual
                     name={perfume.name}
                     imagePath={perfume.imagePath}
@@ -228,7 +206,7 @@ export default function Home() {
                   <p className="mt-4 min-h-14 text-sm leading-7 text-charcoal/62">
                     {perfume.description}
                   </p>
-                  <div className="mt-5 flex translate-y-1 flex-wrap gap-2 opacity-80 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="product-note-chips mt-5 flex translate-y-3 flex-wrap gap-2 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                     {perfume.notes.map((note) => (
                       <span
                         key={note}
@@ -239,15 +217,15 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </article>
+              </ProductTiltCard>
             ))}
-          </div>
+          </StaggerReveal>
         </div>
       </section>
 
       <section className="campaign-band py-20 text-ivory sm:py-28">
         <div className="arabic-pattern opacity-10" />
-        <MistParticles />
+        <FloatingParticleField />
         <div className="section-shell grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative min-h-[430px]">
             <div className="absolute left-0 top-8 w-56 rotate-[-8deg] rounded-lg border border-ivory/14 bg-white/8 p-4 shadow-glow backdrop-blur-md sm:w-72">
@@ -293,19 +271,23 @@ export default function Home() {
             title="Five notes of light."
             text="A quiet system of raw materials, each shaped with restraint, atmosphere, and radiance."
           />
-          <div className="relative mt-14 grid gap-4 lg:grid-cols-5">
+          <ScentUniverseStage>
+          <StaggerReveal className="relative mt-14 grid gap-4 lg:grid-cols-5">
             {scentFamilies.map((family, index) => (
               <article
                 key={family.name}
-                className="group relative min-h-72 overflow-hidden rounded-lg border border-champagne/18 bg-white/30 p-5 transition duration-500 hover:-translate-y-2 hover:border-champagne/48 hover:bg-white/52 hover:shadow-glow"
+                data-scent-accent={family.accent}
+                data-scent-name={family.name}
+                className="scent-family-card group relative min-h-72 overflow-hidden rounded-lg border border-champagne/18 bg-white/30 p-5 transition duration-700 hover:border-champagne/48 hover:bg-white/52 hover:shadow-glow"
                 style={
                   {
                     "--family-accent": family.accent,
-                    transform: `translateY(${index % 2 === 0 ? "0" : "22px"})`,
+                    "--scent-offset": index % 2 === 0 ? "0px" : "22px",
                   } as CSSProperties
                 }
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,var(--family-accent),transparent_58%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div className="scent-card-aura absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,var(--family-accent),transparent_58%)] opacity-0 transition duration-700 group-hover:opacity-100" />
+                <FloatingParticleField className="scent-card-particles opacity-0 transition duration-700 group-hover:opacity-100" />
                 <div className="relative flex h-full flex-col justify-between">
                   <div className="flex items-center justify-between">
                     <span className="arabic-mark text-sm text-charcoal/38">
@@ -327,18 +309,21 @@ export default function Home() {
                 </div>
               </article>
             ))}
-          </div>
+          </StaggerReveal>
+          </ScentUniverseStage>
         </div>
       </section>
 
       <section id="signature" className="relative overflow-hidden bg-[#221f1b] py-20 text-ivory sm:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_35%,rgba(200,169,106,0.24),transparent_26rem),radial-gradient(circle_at_78%_18%,rgba(211,178,167,0.14),transparent_22rem)]" />
         <div className="arabic-pattern opacity-10" />
-        <MistParticles dense />
+        <FloatingParticleField dense amber />
         <div className="section-shell relative grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="relative min-h-[560px] overflow-hidden rounded-lg border border-ivory/12 bg-white/6 shadow-glow backdrop-blur-sm">
+          <FadeReveal className="noor-visual-frame relative min-h-[560px] overflow-hidden rounded-lg border border-ivory/12 bg-white/6 shadow-glow backdrop-blur-sm lg:sticky lg:top-28">
+            <ShimmerLayer />
+            <SprayMist active className="noor-smoke" />
             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.08),transparent)]" />
-            <div className="absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-champagne/16 blur-3xl" />
+            <div className="noor-back-glow absolute left-1/2 top-1/2 h-[31rem] w-[31rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-champagne/18 blur-3xl" />
             <ProductVisual
               name="Noor Elixir"
               imagePath="/images/nure/noor-elixir.png"
@@ -348,9 +333,9 @@ export default function Home() {
               sublabel="إكسير"
               dark
             />
-          </div>
+          </FadeReveal>
 
-          <div>
+          <FadeReveal delay={120}>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-champagne">
               Signature spotlight <span className="arabic-mark">نور</span>
             </p>
@@ -361,11 +346,11 @@ export default function Home() {
               A richer evening fragrance where oud, saffron, black vanilla, and
               golden resin move like warm light behind smoked glass.
             </p>
-            <div className="mt-9 grid gap-3">
+            <StaggerReveal className="mt-9 grid gap-3">
               {noorElixirNotes.map((note) => (
                 <div
                   key={note.label}
-                  className="grid gap-4 rounded-lg border border-ivory/10 bg-white/6 p-4 backdrop-blur-sm transition hover:border-champagne/36 sm:grid-cols-[86px_1fr]"
+                  className="noor-note-row grid gap-4 rounded-lg border border-ivory/10 bg-white/6 p-4 backdrop-blur-sm transition duration-500 hover:border-champagne/36 sm:grid-cols-[86px_1fr]"
                 >
                   <span className="text-xs uppercase tracking-[0.28em] text-champagne">
                     {note.label}
@@ -375,11 +360,11 @@ export default function Home() {
                   </span>
                 </div>
               ))}
-            </div>
-            <Button href="#signature" className="mt-9 border-champagne bg-ivory text-charcoal hover:bg-white">
+            </StaggerReveal>
+            <Button href="#signature" className="noor-cta mt-9 border-champagne bg-ivory text-charcoal">
               Discover Noor Elixir
             </Button>
-          </div>
+          </FadeReveal>
         </div>
       </section>
 

@@ -8,6 +8,7 @@ type ProductVisualProps = {
   label?: string;
   sublabel?: string;
   dark?: boolean;
+  className?: string;
 };
 
 export function ProductVisual({
@@ -18,6 +19,7 @@ export function ProductVisual({
   label,
   sublabel,
   dark = false,
+  className = "",
 }: ProductVisualProps) {
   const stageClass =
     size === "hero"
@@ -35,7 +37,7 @@ export function ProductVisual({
 
   return (
     <div
-      className={stageClass}
+      className={`${stageClass} product-visual-stage ${className}`}
       data-image-path={imagePath}
       aria-label={`${name} visual placeholder`}
     >

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
@@ -9,11 +11,11 @@ type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 const variants = {
   primary:
-    "border-champagne bg-charcoal text-ivory shadow-glow hover:-translate-y-0.5 hover:bg-[#2b2722]",
+    "premium-button-primary border-champagne bg-charcoal text-ivory shadow-glow",
   secondary:
-    "border-champagne/40 bg-white/38 text-charcoal backdrop-blur-md hover:-translate-y-0.5 hover:border-champagne hover:bg-white/58",
+    "premium-button-secondary border-champagne/40 bg-white/38 text-charcoal backdrop-blur-md",
   ghost:
-    "border-transparent bg-transparent text-charcoal hover:bg-white/42 hover:text-charcoal",
+    "premium-button-ghost border-transparent bg-transparent text-charcoal",
 };
 
 export function Button({
@@ -26,10 +28,17 @@ export function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-12 items-center justify-center rounded-full border px-6 text-sm font-medium transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne ${variants[variant]} ${className}`}
+      className={`premium-button inline-flex min-h-12 items-center justify-center overflow-hidden rounded-full border px-6 text-sm font-medium transition duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne ${variants[variant]} ${className}`}
+      onPointerMove={(event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        event.currentTarget.style.setProperty("--button-x", `${x}px`);
+        event.currentTarget.style.setProperty("--button-y", `${y}px`);
+      }}
       {...props}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
     </Link>
   );
 }

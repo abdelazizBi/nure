@@ -15,6 +15,7 @@ import {
 import { ProductVisual } from "@/components/ProductVisual";
 import {
   featuredPerfumes,
+  nureImages,
   noorElixirNotes,
   scentFamilies,
   scentRail,
@@ -122,9 +123,8 @@ export default function Home() {
               <div data-spray-trigger className="hero-bottle-trigger relative cursor-pointer">
               <ProductVisual
                 name="NŪRÉ hero bottle"
-                imagePath="/images/nure/hero-bottle.png"
+                image={nureImages.heroBottle}
                 size="hero"
-                variant="champagne"
                 className="hero-bottle-visual"
               />
               </div>
@@ -173,7 +173,7 @@ export default function Home() {
           </div>
 
           <StaggerReveal className="mt-12 grid gap-5 md:grid-cols-3">
-            {featuredPerfumes.map((perfume, index) => (
+            {featuredPerfumes.map((perfume) => (
               <ProductTiltCard
                 key={perfume.name}
               >
@@ -186,10 +186,7 @@ export default function Home() {
                   <ShimmerLayer />
                   <ProductVisual
                     name={perfume.name}
-                    imagePath={perfume.imagePath}
-                    variant={perfume.bottleVariant}
-                    label={index === 2 ? "VEIL" : "NŪRÉ"}
-                    sublabel={index === 2 ? "زعفران" : "نوري"}
+                    image={perfume.image}
                   />
                 </div>
                 <div className="pt-6">
@@ -227,27 +224,21 @@ export default function Home() {
         <div className="arabic-pattern opacity-10" />
         <FloatingParticleField />
         <div className="section-shell grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative min-h-[430px]">
-            <div className="absolute left-0 top-8 w-56 rotate-[-8deg] rounded-lg border border-ivory/14 bg-white/8 p-4 shadow-glow backdrop-blur-md sm:w-72">
+          <div className="ritual-stack relative min-h-[430px]">
+            <div className="ritual-card ritual-card-back absolute left-0 top-8 w-56 rotate-[-4deg] rounded-lg sm:w-72">
               <ProductVisual
                 name="Layered oud ritual"
-                imagePath="/images/nure/ritual-oud.png"
-                variant="amber"
-                label="OUD"
-                sublabel="عود"
+                image={nureImages.genericBottle}
               />
             </div>
-            <div className="absolute bottom-0 right-0 w-60 rotate-[7deg] rounded-lg border border-champagne/24 bg-ivory/80 p-4 text-charcoal shadow-pearl backdrop-blur-md sm:w-80">
+            <div className="ritual-card ritual-card-front absolute bottom-0 right-0 w-60 rotate-[3deg] rounded-lg text-charcoal sm:w-80">
               <ProductVisual
                 name="Layered musk ritual"
-                imagePath="/images/nure/ritual-musk.png"
-                variant="rose"
-                label="MUSK"
-                sublabel="مسك"
+                image={nureImages.genericBottle}
               />
             </div>
           </div>
-          <div className="relative z-10 max-w-2xl lg:pl-10">
+          <div className="campaign-copy relative z-10 max-w-2xl lg:pl-10">
             <p className="text-xs uppercase tracking-[0.32em] text-champagne">
               Ritual atmosphere <span className="arabic-mark">طقوس</span>
             </p>
@@ -318,24 +309,21 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_35%,rgba(200,169,106,0.24),transparent_26rem),radial-gradient(circle_at_78%_18%,rgba(211,178,167,0.14),transparent_22rem)]" />
         <div className="arabic-pattern opacity-10" />
         <FloatingParticleField dense amber />
-        <div className="section-shell relative grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-          <FadeReveal className="noor-visual-frame relative min-h-[560px] overflow-hidden rounded-lg border border-ivory/12 bg-white/6 shadow-glow backdrop-blur-sm lg:sticky lg:top-28">
+        <div className="section-shell relative grid items-center gap-12 lg:grid-cols-[1.18fr_0.82fr]">
+          <FadeReveal className="noor-visual-frame relative min-h-[560px] overflow-hidden rounded-lg lg:sticky lg:top-28">
             <ShimmerLayer />
             <SprayMist active className="noor-smoke" />
             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.08),transparent)]" />
             <div className="noor-back-glow absolute left-1/2 top-1/2 h-[31rem] w-[31rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-champagne/18 blur-3xl" />
             <ProductVisual
               name="Noor Elixir"
-              imagePath="/images/nure/noor-elixir.png"
+              image={nureImages.products.noorElixir}
               size="spotlight"
-              variant="deep-gold"
-              label="NOOR"
-              sublabel="إكسير"
               dark
             />
           </FadeReveal>
 
-          <FadeReveal delay={120}>
+          <FadeReveal delay={120} className="noor-copy">
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-champagne">
               Signature spotlight <span className="arabic-mark">نور</span>
             </p>

@@ -1,32 +1,38 @@
-import { LuxuryBottlePlaceholder } from "@/components/LuxuryBottlePlaceholder";
+import Image from "next/image";
+import type { CSSProperties } from "react";
 
 type ProductVisualProps = {
   name: string;
-  imagePath?: string;
+  image?: string;
   size?: "hero" | "spotlight" | "card";
-  variant?: string;
-  label?: string;
-  sublabel?: string;
   dark?: boolean;
   className?: string;
 };
 
+const imageSizes = {
+  hero: "(min-width: 1024px) 50vw, (min-width: 640px) 68vw, 92vw",
+  spotlight: "(min-width: 1024px) 44vw, (min-width: 640px) 64vw, 88vw",
+  card: "(min-width: 768px) 30vw, 86vw",
+};
+
 export function ProductVisual({
   name,
-  imagePath,
+  image,
   size = "card",
-  variant = "ivory",
-  label,
-  sublabel,
   dark = false,
   className = "",
 }: ProductVisualProps) {
+  const imageWrapStyle =
+    size === "card"
+      ? ({ flex: "0 0 auto", width: "min(94%, 270px)" } as CSSProperties)
+      : undefined;
+
   const stageClass =
     size === "hero"
-      ? "relative flex min-h-[430px] items-center justify-center md:min-h-[620px]"
+      ? "relative flex min-h-[460px] items-center justify-center md:min-h-[680px]"
       : size === "spotlight"
-        ? "relative flex min-h-[460px] items-center justify-center"
-        : "relative flex h-64 items-center justify-center";
+        ? "relative flex min-h-[500px] items-center justify-center"
+        : "relative flex h-80 items-center justify-center";
 
   const glowClass =
     size === "hero"
@@ -37,20 +43,26 @@ export function ProductVisual({
 
   return (
     <div
-      className={`${stageClass} product-visual-stage ${className}`}
-      data-image-path={imagePath}
-      aria-label={`${name} visual placeholder`}
+      className={`${stageClass} product-visual-stage product-visual-stage-${size} ${
+        dark ? "product-visual-stage-dark" : ""
+      } ${className}`}
     >
       <div className={glowClass} aria-hidden="true" />
-      <LuxuryBottlePlaceholder
-        name={name}
-        imagePath={imagePath}
-        size={size}
-        variant={variant}
-        label={label}
-        sublabel={sublabel}
-        dark={dark}
-      />
+      <div
+        className={`real-bottle-wrap real-bottle-wrap-${size}`}
+        style={imageWrapStyle}
+      >
+        <Image
+          src={image ?? "/images/nure/master-bottle.png"}
+          alt={`${name} perfume bottle`}
+          fill
+          sizes={imageSizes[size]}
+          className="real-bottle-image object-contain"
+          priority={size === "hero" || size === "spotlight"}
+        />
+        <div className="real-bottle-shine" aria-hidden="true" />
+        <div className="real-bottle-reflection" aria-hidden="true" />
+      </div>
     </div>
   );
 }

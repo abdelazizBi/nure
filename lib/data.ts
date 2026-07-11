@@ -5,6 +5,17 @@ export const navItems = [
   { label: "Rituals", href: "#rituals" },
 ];
 
+export const nureImages = {
+  genericBottle: "/images/nure/master-bottle.png",
+  heroBottle: "/images/nure/hero-bottle.png",
+  products: {
+    whiteOud: "/images/nure/products/white-oud.png",
+    solarMusk: "/images/nure/products/solar-musk.png",
+    saffronVeil: "/images/nure/products/saffron-veil.png",
+    noorElixir: "/images/nure/products/noor-elixir.png",
+  },
+} as const;
+
 export const featuredPerfumes = [
   {
     name: "White Oud",
@@ -13,9 +24,8 @@ export const featuredPerfumes = [
     family: "Modern Oriental",
     description: "Clean oud, white musk, and amber woods.",
     notes: ["Oud", "White musk", "Amber woods"],
-    imagePath: "/images/nure/white-oud.png",
+    image: nureImages.products.whiteOud,
     tone: "from-ivory via-white to-sand/40",
-    bottleVariant: "ivory",
   },
   {
     name: "Solar Musk",
@@ -24,9 +34,8 @@ export const featuredPerfumes = [
     family: "Radiant Musk",
     description: "Warm musk, bergamot, soft vanilla, and golden amber.",
     notes: ["Musk", "Bergamot", "Vanilla", "Amber"],
-    imagePath: "/images/nure/solar-musk.png",
+    image: nureImages.products.solarMusk,
     tone: "from-[#FFF3D2] via-ivory to-champagne/30",
-    bottleVariant: "champagne",
   },
   {
     name: "Saffron Veil",
@@ -35,9 +44,8 @@ export const featuredPerfumes = [
     family: "Spiced Floral",
     description: "Saffron, rose, incense, and sandalwood.",
     notes: ["Saffron", "Rose", "Incense", "Sandalwood"],
-    imagePath: "/images/nure/saffron-veil.png",
+    image: nureImages.products.saffronVeil,
     tone: "from-rose/45 via-ivory to-[#c48958]/25",
-    bottleVariant: "saffron",
   },
 ];
 

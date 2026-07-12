@@ -7,9 +7,9 @@ import { FadeReveal, FloatingParticleField, StaggerReveal } from "@/components/P
 import { productFamilies, products } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Collection | NURE Luxury Arabic Perfume Maison",
+  title: "Collection | NŪRÉ Luxury Arabic Perfume Maison",
   description:
-    "Browse the NURE collection of oud, musk, amber, saffron, rose, floral, and resin fragrances.",
+    "Browse the NŪRÉ collection of oud, musk, amber, saffron, rose, floral, and resin fragrances.",
 };
 
 export default function CollectionPage() {
@@ -31,7 +31,7 @@ export default function CollectionPage() {
               Six luminous signatures
             </p>
             <h1 className="editorial-title mt-8 text-6xl leading-[0.95] text-charcoal sm:text-8xl">
-              The NURE collection.
+              The NŪRÉ collection.
             </h1>
           </FadeReveal>
 

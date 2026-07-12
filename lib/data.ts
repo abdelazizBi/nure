@@ -47,7 +47,7 @@ export const nureImages = {
   },
 } as const;
 
-const fallbackImage = nureImages.genericBottle;
+export const productImageFallback = nureImages.genericBottle;
 
 export const products: Product[] = [
   {
@@ -57,7 +57,7 @@ export const products: Product[] = [
     longStory:
       "White Oud translates the ceremonial depth of oud into a transparent modern signature. Mineral woods, white musk, and a veil of amber create a quiet trail that feels polished, luminous, and close to skin.",
     image: nureImages.products.whiteOud,
-    fallbackImage,
+    fallbackImage: productImageFallback,
     scentFamily: ["Oud", "Musk", "Amber"],
     concentration: "Eau de Parfum",
     size: "50ml",
@@ -77,9 +77,9 @@ export const products: Product[] = [
     slug: "solar-musk",
     shortDescription: "Warm musk, bergamot, soft vanilla, and golden amber with sunlit ease.",
     longStory:
-      "Solar Musk is NURE's softest radiance: a warm-skin musk brightened by citrus and held by creamy amber. It is minimal, luminous, and quietly addictive, made for mornings that linger into gold.",
+      "Solar Musk is NŪRÉ's softest radiance: a warm-skin musk brightened by citrus and held by creamy amber. It is minimal, luminous, and quietly addictive, made for mornings that linger into gold.",
     image: nureImages.products.solarMusk,
-    fallbackImage,
+    fallbackImage: productImageFallback,
     scentFamily: ["Musk", "Amber"],
     concentration: "Eau de Parfum",
     size: "50ml",
@@ -101,7 +101,7 @@ export const products: Product[] = [
     longStory:
       "Saffron Veil is a golden thread across silk: spiced, floral, and gently smoky. Damask rose and incense soften the brightness of saffron while sandalwood gives the composition a graceful, lasting shape.",
     image: nureImages.products.saffronVeil,
-    fallbackImage,
+    fallbackImage: productImageFallback,
     scentFamily: ["Saffron", "Rose", "Floral"],
     concentration: "Eau de Parfum",
     size: "50ml",
@@ -122,8 +122,8 @@ export const products: Product[] = [
     shortDescription: "A translucent amber study with vanilla resin, labdanum, and soft woods.",
     longStory:
       "Pearl Amber keeps amber luminous instead of heavy. Labdanum, benzoin, and pale woods move through a pearl-white haze, leaving warmth without weight and polish without excess.",
-    image: nureImages.genericBottle,
-    fallbackImage,
+    image: productImageFallback,
+    fallbackImage: productImageFallback,
     scentFamily: ["Amber", "Resin"],
     concentration: "Eau de Parfum",
     size: "50ml",
@@ -144,8 +144,8 @@ export const products: Product[] = [
     shortDescription: "Rose, desert botanicals, mineral petals, and airy musk after first rain.",
     longStory:
       "Desert Bloom imagines a floral note rising from warm stone after rain. Rose and neroli are made sheer with mineral petals, date blossom, and airy musk for a fresh, refined bloom.",
-    image: nureImages.genericBottle,
-    fallbackImage,
+    image: productImageFallback,
+    fallbackImage: productImageFallback,
     scentFamily: ["Floral", "Rose", "Musk"],
     concentration: "Eau de Parfum",
     size: "50ml",
@@ -167,7 +167,7 @@ export const products: Product[] = [
     longStory:
       "Noor Elixir is the collection's after-dark signature. Oud smoke and saffron gather around black vanilla and golden resin, creating a cinematic trail that feels warm, shadowed, and luminous at once.",
     image: nureImages.products.noorElixir,
-    fallbackImage,
+    fallbackImage: productImageFallback,
     scentFamily: ["Oud", "Saffron", "Amber", "Resin"],
     concentration: "Extrait de Parfum",
     size: "50ml",

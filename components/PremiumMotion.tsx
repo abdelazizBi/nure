@@ -264,7 +264,7 @@ export function ProductTiltCard({
 
 export function ScentUniverseStage({ children }: { children: ReactNode }) {
   const [accent, setAccent] = useState("rgba(200, 169, 106, 0.42)");
-  const [name, setName] = useState("NURE");
+  const [name, setName] = useState("NŪRÉ");
 
   return (
     <div
@@ -272,13 +272,13 @@ export function ScentUniverseStage({ children }: { children: ReactNode }) {
       style={{ "--scent-active": accent } as CSSProperties}
       onPointerLeave={() => {
         setAccent("rgba(200, 169, 106, 0.42)");
-        setName("NURE");
+        setName("NŪRÉ");
       }}
       onPointerMove={(event) => {
         const card = (event.target as HTMLElement).closest<HTMLElement>("[data-scent-accent]");
         if (!card) return;
         setAccent(card.dataset.scentAccent ?? "rgba(200, 169, 106, 0.42)");
-        setName(card.dataset.scentName ?? "NURE");
+        setName(card.dataset.scentName ?? "NŪRÉ");
       }}
     >
       <div className="scent-aura" aria-hidden="true">

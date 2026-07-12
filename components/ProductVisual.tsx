@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { productImageFallback } from "@/lib/data";
 
 type ProductVisualProps = {
   name: string;
@@ -53,7 +54,7 @@ export function ProductVisual({
         style={imageWrapStyle}
       >
         <Image
-          src={image ?? "/images/nure/master-bottle.png"}
+          src={image ?? productImageFallback}
           alt={`${name} perfume bottle`}
           fill
           sizes={imageSizes[size]}

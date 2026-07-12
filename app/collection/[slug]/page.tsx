@@ -25,12 +25,12 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: "Fragrance Not Found | NURE",
+      title: "Fragrance Not Found | NŪRÉ",
     };
   }
 
   return {
-    title: `${product.name} | NURE Collection`,
+    title: `${product.name} | NŪRÉ Collection`,
     description: product.shortDescription,
   };
 }

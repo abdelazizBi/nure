@@ -16,7 +16,7 @@ export function ProductCard({
   const notes = [product.topNotes[0], product.heartNotes[0], product.baseNotes[0]];
 
   return (
-    <ProductTiltCard className={isDark ? "bg-[#211d18]/90 text-ivory" : ""}>
+    <ProductTiltCard className={`product-card-unified ${isDark ? "bg-[#211d18]/90 text-ivory" : ""}`}>
       <Link
         href={`/collection/${product.slug}`}
         className="absolute inset-0 z-20 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne"
@@ -25,7 +25,7 @@ export function ProductCard({
       <div className="card-lux-glow" aria-hidden="true" />
       <div className="absolute inset-x-6 top-4 h-px bg-gradient-to-r from-transparent via-champagne/44 to-transparent opacity-0 transition duration-700 group-hover:opacity-100" />
       <div
-        className={`product-card-stage relative overflow-hidden rounded-lg bg-gradient-to-br ${product.tone} ${
+        className={`product-card-stage relative overflow-hidden bg-gradient-to-br ${product.tone} ${
           compact ? "min-h-72" : ""
         }`}
       >
@@ -37,7 +37,7 @@ export function ProductCard({
           dark={isDark}
         />
       </div>
-      <div className="pointer-events-none relative z-30 pt-6">
+      <div className="pointer-events-none relative z-30 p-5 pt-6">
         <div
           className={`flex items-center justify-between gap-4 text-[0.68rem] uppercase tracking-[0.22em] ${
             isDark ? "text-ivory/46" : "text-charcoal/42"

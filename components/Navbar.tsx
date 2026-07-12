@@ -14,7 +14,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav
         aria-label="Primary navigation"
-        className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border border-white/64 bg-ivory/72 px-4 py-3 shadow-pearl backdrop-blur-xl md:px-5"
+        className="site-nav mx-auto flex w-full max-w-6xl items-center justify-between rounded-full px-4 py-3 md:px-5"
       >
         <Link
           href="/"
@@ -67,7 +67,7 @@ export function Navbar() {
       </nav>
 
       {isOpen ? (
-        <div className="mx-auto mt-2 w-[calc(100%-16px)] max-w-6xl rounded-lg border border-white/60 bg-ivory/90 p-3 shadow-pearl backdrop-blur-xl lg:hidden">
+        <div className="site-nav mx-auto mt-2 w-[calc(100%-16px)] max-w-6xl rounded-lg p-3 lg:hidden">
           <div className="grid gap-1">
             {navItems.map((item) => (
               <Link

@@ -177,6 +177,7 @@ export default function Home() {
             {featuredPerfumes.map((perfume) => (
               <ProductTiltCard
                 key={perfume.name}
+                className="product-card-unified"
               >
                 <Link
                   href={`/collection/${perfume.slug}`}
@@ -186,7 +187,7 @@ export default function Home() {
                 <div className="card-lux-glow" aria-hidden="true" />
                 <div className="absolute inset-x-6 top-4 h-px bg-gradient-to-r from-transparent via-champagne/44 to-transparent opacity-0 transition duration-700 group-hover:opacity-100" />
                 <div
-                  className={`product-card-stage relative overflow-hidden rounded-lg bg-gradient-to-br ${perfume.tone}`}
+                  className={`product-card-stage relative overflow-hidden bg-gradient-to-br ${perfume.tone}`}
                 >
                   <div className="absolute inset-x-8 bottom-8 h-8 rounded-full bg-charcoal/10 blur-xl" />
                   <ShimmerLayer />
@@ -195,7 +196,7 @@ export default function Home() {
                     image={perfume.image}
                   />
                 </div>
-                <div className="pointer-events-none relative z-30 pt-6">
+                <div className="pointer-events-none relative z-30 p-5 pt-6">
                   <div className="flex items-center justify-between gap-4 text-[0.68rem] uppercase tracking-[0.22em] text-charcoal/42">
                     <span>{perfume.category}</span>
                     <span>{perfume.volume}</span>
@@ -233,18 +234,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="campaign-band py-20 text-ivory sm:py-28">
+      <section id="rituals" className="campaign-band scroll-mt-28 py-20 text-ivory sm:py-28">
         <div className="arabic-pattern opacity-10" />
         <FloatingParticleField />
         <div className="section-shell grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="ritual-stack relative min-h-[430px]">
-            <div className="ritual-card ritual-card-back absolute left-0 top-8 w-56 rotate-[-4deg] rounded-lg sm:w-72">
+            <div className="ritual-card ritual-card-back absolute left-0 top-12 w-52 rotate-[-2deg] sm:w-64">
               <ProductVisual
                 name="Layered oud ritual"
                 image={nureImages.genericBottle}
               />
             </div>
-            <div className="ritual-card ritual-card-front absolute bottom-0 right-0 w-60 rotate-[3deg] rounded-lg text-charcoal sm:w-80">
+            <div className="ritual-card ritual-card-front absolute bottom-0 right-0 w-64 rotate-[1.5deg] text-charcoal sm:w-[22rem]">
               <ProductVisual
                 name="Layered musk ritual"
                 image={nureImages.genericBottle}
@@ -374,7 +375,7 @@ export default function Home() {
         <div className="section-shell relative">
           <div className="absolute -left-16 top-10 h-72 w-72 rounded-full bg-rose/18 blur-3xl" />
           <div className="absolute -right-12 bottom-0 h-80 w-80 rounded-full bg-champagne/18 blur-3xl" />
-          <div className="relative grid items-center gap-8 border-y border-champagne/20 py-14 md:grid-cols-[1fr_auto]">
+          <div className="scent-finder-invite relative grid items-center gap-10 rounded-[2rem] border border-champagne/20 px-6 py-16 shadow-pearl backdrop-blur-sm sm:px-10 sm:py-20 md:grid-cols-[1fr_auto]">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.32em] text-champagne">
                 Scent finder <span className="arabic-mark text-charcoal/36">بصمتك</span>
@@ -383,7 +384,8 @@ export default function Home() {
                 Find the scent that follows your light.
               </h2>
               <p className="mt-5 max-w-xl text-base leading-8 text-charcoal/62">
-                Answer a few questions and discover your NŪRÉ signature.
+                Answer a few quiet questions and let mood, ritual, and presence
+                reveal your NŪRÉ signature.
               </p>
             </div>
             <Button href="/scent-finder" className="md:justify-self-end">
@@ -393,7 +395,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="maison" className="relative py-20 sm:py-28">
+      <section id="maison" className="relative scroll-mt-28 overflow-hidden py-24 sm:py-32">
+        <div className="absolute -left-24 top-20 h-80 w-80 rounded-full bg-champagne/10 blur-3xl" />
         <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-champagne">
@@ -404,13 +407,18 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid gap-6">
-            <p className="text-xl leading-9 text-charcoal/68">
+            <p className="text-xl leading-9 text-charcoal/68 sm:text-2xl sm:leading-10">
               NŪRÉ blends Arabic fragrance rituals with a modern language of
-              light, glass, and memory.
+              light, glass, and memory—each composition designed to be worn as
+              an atmosphere, not simply an accessory.
             </p>
             <div className="soft-line" />
-            <div id="rituals" className="grid gap-4 sm:grid-cols-3">
-              {["Mist", "Layer", "Remember"].map((ritual) => (
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ["Mist", "Begin lightly, letting fragrance settle into skin and air."],
+                ["Layer", "Build quiet depth with notes that meet rather than compete."],
+                ["Remember", "Leave a luminous trace that returns with the memory."],
+              ].map(([ritual, copy]) => (
                 <div
                   key={ritual}
                   className="rounded-lg border border-champagne/18 bg-white/28 p-5 shadow-pearl backdrop-blur-sm transition hover:-translate-y-1 hover:border-champagne/42"
@@ -419,7 +427,7 @@ export default function Home() {
                     {ritual}
                   </p>
                   <p className="mt-3 text-sm leading-6 text-charcoal/56">
-                    A quiet gesture for scent to become atmosphere.
+                    {copy}
                   </p>
                 </div>
               ))}

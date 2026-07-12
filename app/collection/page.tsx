@@ -27,13 +27,13 @@ export default function CollectionPage() {
       <div className="noise" />
       <Navbar />
 
-      <section className="relative overflow-hidden pt-32">
+      <section className="relative overflow-hidden pt-28">
         <div className="arabic-pattern opacity-15" />
         <FloatingParticleField dense />
         <div className="mist-cloud left-[-8rem] top-28 h-80 w-80" />
         <div className="mist-cloud right-[-5rem] top-52 h-96 w-96 [animation-delay:-5s]" />
 
-        <div className="section-shell relative grid min-h-[560px] items-end gap-8 pb-16 lg:grid-cols-[0.9fr_1fr]">
+        <div className="section-shell relative grid min-h-[440px] items-center gap-8 pb-12 pt-8 sm:min-h-[500px] lg:grid-cols-[0.9fr_1fr]">
           <FadeReveal className="max-w-3xl">
             <p className="inline-flex items-center gap-3 rounded-full border border-champagne/28 bg-white/42 px-4 py-2 text-xs uppercase tracking-[0.28em] text-charcoal/62 shadow-pearl backdrop-blur">
               <span className="arabic-mark text-charcoal/38">المجموعة</span>

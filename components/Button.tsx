@@ -28,7 +28,7 @@ export function Button({
   return (
     <Link
       href={href}
-      className={`premium-button inline-flex min-h-12 items-center justify-center overflow-hidden rounded-full border px-6 text-sm font-medium transition duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne ${variants[variant]} ${className}`}
+      className={`premium-button inline-flex min-h-12 items-center justify-center overflow-hidden rounded-full border px-6 text-sm font-medium transition duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne aria-disabled:pointer-events-none aria-disabled:cursor-not-allowed aria-disabled:opacity-50 ${variants[variant]} ${className}`}
       onPointerMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         const x = event.clientX - rect.left;

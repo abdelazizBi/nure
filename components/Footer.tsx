@@ -57,9 +57,11 @@ export function Footer() {
             <Link href="#" className="transition hover:text-ivory">
               Instagram
             </Link>
+            <span aria-hidden="true">/</span>
             <Link href="#" className="transition hover:text-ivory">
               TikTok
             </Link>
+            <span aria-hidden="true">/</span>
             <Link href="#" className="transition hover:text-ivory">
               Pinterest
             </Link>

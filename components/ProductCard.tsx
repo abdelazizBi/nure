@@ -65,7 +65,7 @@ export function ProductCard({
         </p>
         <NoteChips
           notes={notes}
-          className={`product-note-chips mt-5 translate-y-3 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${
+          className={`product-note-chips mt-5 transition duration-500 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-within:translate-y-0 md:group-focus-within:opacity-100 ${
             isDark ? "[&_span]:border-ivory/14 [&_span]:bg-white/8 [&_span]:text-ivory/68" : ""
           }`}
         />

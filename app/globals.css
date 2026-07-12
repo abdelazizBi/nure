@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -31,6 +32,16 @@ body {
   color: var(--charcoal);
   font-family: Inter, "Avenir Next", "Segoe UI", Arial, sans-serif;
   text-rendering: geometricPrecision;
+  overflow-wrap: break-word;
+}
+
+:focus-visible {
+  scroll-margin: 7rem;
+}
+
+[aria-current="page"] {
+  color: var(--charcoal);
+  background: rgba(255, 255, 255, 0.52);
 }
 
 a {
@@ -1019,6 +1030,14 @@ input {
 }
 
 @media (max-width: 767px) {
+  .section-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .editorial-title {
+    text-wrap: balance;
+  }
+
   .hero-stage {
     border-radius: 22px;
     min-height: 500px;
@@ -1034,7 +1053,7 @@ input {
   }
 
   .product-card-stage {
-    min-height: 21rem;
+    min-height: 19rem;
   }
 
   .real-bottle-wrap-card {
@@ -1100,6 +1119,10 @@ input {
 
   .campaign-copy {
     padding-top: 1.5rem;
+  }
+
+  .finder-result .product-visual-stage-spotlight {
+    min-height: 390px;
   }
 }
 

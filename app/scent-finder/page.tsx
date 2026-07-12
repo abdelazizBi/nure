@@ -5,8 +5,17 @@ import { ScentFinder } from "@/components/ScentFinder";
 import { FloatingParticleField } from "@/components/PremiumMotion";
 
 export const metadata: Metadata = {
-  title: "Scent Finder | NŪRÉ",
+  title: "Scent Finder",
   description: "Discover your NŪRÉ fragrance through a guided luxury scent finder.",
+  openGraph: {
+    title: "Scent Finder | NŪRÉ",
+    description: "Follow a quiet ritual of mood and notes to reveal your NŪRÉ signature.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scent Finder | NŪRÉ",
+    description: "Follow a quiet ritual of mood and notes to reveal your NŪRÉ signature.",
+  },
 };
 
 export default function ScentFinderPage() {

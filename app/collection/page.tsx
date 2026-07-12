@@ -7,9 +7,18 @@ import { FadeReveal, FloatingParticleField, StaggerReveal } from "@/components/P
 import { productFamilies, products } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Collection | NŪRÉ Luxury Arabic Perfume Maison",
+  title: "Collection",
   description:
     "Browse the NŪRÉ collection of oud, musk, amber, saffron, rose, floral, and resin fragrances.",
+  openGraph: {
+    title: "Collection | NŪRÉ",
+    description: "Six luminous signatures in oud, musk, amber, saffron, rose, and resin.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Collection | NŪRÉ",
+    description: "Six luminous signatures in oud, musk, amber, saffron, rose, and resin.",
+  },
 };
 
 export default function CollectionPage() {
@@ -37,7 +46,7 @@ export default function CollectionPage() {
 
           <FadeReveal delay={120} className="max-w-2xl lg:justify-self-end">
             <p className="text-lg leading-9 text-charcoal/64">
-              A portfolio of modern oriental fragrances built around pearl-white
+              A collection of modern oriental fragrances built around pearl-white
               light, transparent glass, warm resin, and the quiet ceremony of
               Arabic scent rituals.
             </p>
@@ -46,7 +55,7 @@ export default function CollectionPage() {
                 <a
                   key={family}
                   href={`#${family.toLowerCase()}`}
-                  className="rounded-full border border-champagne/24 bg-white/38 px-4 py-2 text-xs uppercase tracking-[0.18em] text-charcoal/58 shadow-pearl backdrop-blur transition hover:border-champagne/54 hover:bg-white/66"
+                  className="rounded-full border border-champagne/24 bg-white/38 px-4 py-2 text-xs uppercase tracking-[0.18em] text-charcoal/64 shadow-pearl backdrop-blur transition hover:border-champagne/54 hover:bg-white/66 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne"
                 >
                   {family}
                 </a>

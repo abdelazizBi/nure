@@ -9,7 +9,7 @@ export function Footer() {
       <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-champagne/12 blur-3xl" />
       <div className="section-shell relative grid gap-10 py-12 md:grid-cols-[1.1fr_0.8fr_1fr] md:py-16">
         <div>
-          <Link href="/" className="inline-flex items-end gap-3">
+          <Link href="/" aria-label="NŪRÉ homepage" className="inline-flex items-end gap-3 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne">
             <span className="editorial-title text-4xl">NŪRÉ</span>
             <span className="arabic-mark pb-1 text-sm text-ivory/62">نوري</span>
           </Link>
@@ -31,7 +31,7 @@ export function Footer() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm text-ivory/64 transition hover:text-ivory"
+                className="rounded-sm py-1 text-sm text-ivory/70 transition hover:text-ivory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne"
               >
                 {item.label}
               </Link>
@@ -43,34 +43,25 @@ export function Footer() {
           <p className="text-xs uppercase tracking-[0.28em] text-champagne">
             Letters from the Maison
           </p>
-          <div className="mt-4 flex rounded-full border border-ivory/14 bg-white/7 p-1 shadow-glow backdrop-blur">
+          <div className="mt-4 flex rounded-full border border-ivory/14 bg-white/7 p-1 shadow-glow backdrop-blur focus-within:border-champagne/60">
+            <label htmlFor="maison-email" className="sr-only">Email address</label>
             <input
-              aria-label="Email address"
+              id="maison-email"
+              type="email"
+              autoComplete="email"
               placeholder="Email address"
               className="min-w-0 flex-1 bg-transparent px-4 text-sm text-ivory placeholder:text-ivory/38 outline-none"
             />
-            <Button href="#" variant="secondary" className="min-h-10 border-ivory/16 bg-ivory text-charcoal hover:bg-white">
+            <Button href="/scent-finder" variant="secondary" className="min-h-10 border-ivory/16 bg-ivory text-charcoal hover:bg-white">
               Join
             </Button>
           </div>
-          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-[0.16em] text-ivory/48">
-            <Link href="#" className="transition hover:text-ivory">
-              Instagram
-            </Link>
-            <span aria-hidden="true">/</span>
-            <Link href="#" className="transition hover:text-ivory">
-              TikTok
-            </Link>
-            <span aria-hidden="true">/</span>
-            <Link href="#" className="transition hover:text-ivory">
-              Pinterest
-            </Link>
-          </div>
+          <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ivory/52">Private releases · Maison notes · Scent rituals</p>
         </div>
       </div>
       <div className="relative border-t border-ivory/10 py-5">
         <div className="section-shell flex text-xs text-ivory/42">
-          <span>© 2026 NŪRÉ. Fictional portfolio concept.</span>
+          <span>© 2026 NŪRÉ. All rights reserved.</span>
         </div>
       </div>
     </footer>

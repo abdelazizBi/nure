@@ -25,13 +25,24 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: "Fragrance Not Found | NŪRÉ",
+      title: { absolute: "Fragrance Not Found | NŪRÉ" },
     };
   }
 
   return {
-    title: `${product.name} | NŪRÉ Collection`,
+    title: { absolute: `${product.name} | NŪRÉ Collection` },
     description: product.shortDescription,
+    openGraph: {
+      title: `${product.name} | NŪRÉ Collection`,
+      description: product.shortDescription,
+      images: [{ url: product.image, alt: `${product.name} perfume bottle` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | NŪRÉ Collection`,
+      description: product.shortDescription,
+      images: [product.image],
+    },
   };
 }
 

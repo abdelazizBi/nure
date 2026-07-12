@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { Button } from "@/components/Button";
 import { NoteChips } from "@/components/NoteChips";
 import { ProductVisual } from "@/components/ProductVisual";
@@ -47,7 +48,7 @@ const questions: Question[] = [
 
 function QuizProgress({ step }: { step: number }) {
   return (
-    <div className="mb-10" aria-label={`Question ${step + 1} of ${questions.length}`}>
+    <div className="mb-8 sm:mb-10" role="progressbar" aria-label="Scent finder progress" aria-valuemin={1} aria-valuemax={questions.length} aria-valuenow={step + 1}>
       <div className="flex items-center justify-between text-[0.68rem] uppercase tracking-[0.25em] text-charcoal/42">
         <span>Ritual {String(step + 1).padStart(2, "0")}</span><span>{String(questions.length).padStart(2, "0")}</span>
       </div>
@@ -78,7 +79,7 @@ function FinderResult({ primary, alternatives, explanation, onRetake }: { primar
         <div className="relative">
           <p className="text-xs uppercase tracking-[0.32em] text-champagne">Your luminous signature</p>
           <h2 className="editorial-title mt-4 text-5xl leading-none text-charcoal sm:text-7xl">{primary.name}</h2>
-          <p className="mt-4 text-xs uppercase tracking-[0.22em] text-charcoal/48">{primary.scentFamily.join(" · ")} · {primary.concentration}</p>
+          <p className="mt-4 text-xs uppercase leading-6 tracking-[0.18em] text-charcoal/58">{primary.scentFamily.join(" · ")} · {primary.concentration}</p>
           <p className="mt-6 text-lg leading-8 text-charcoal/68">{explanation}</p>
           <div className="mt-6"><p className="mb-3 text-xs uppercase tracking-[0.24em] text-champagne">The trail</p><NoteChips notes={notes} /></div>
           <p className="mt-6 text-sm leading-7 text-charcoal/58"><span className="text-charcoal">Mood:</span> {primary.mood}</p>
@@ -86,7 +87,7 @@ function FinderResult({ primary, alternatives, explanation, onRetake }: { primar
           <button type="button" onClick={onRetake} className="mt-5 text-xs uppercase tracking-[0.2em] text-charcoal/48 underline decoration-champagne/50 underline-offset-4 transition hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne">Retake Finder</button>
         </div>
       </div>
-      <div className="relative mt-10 border-t border-champagne/20 pt-8"><p className="text-xs uppercase tracking-[0.28em] text-champagne">Also in your light</p><div className="mt-5 grid gap-3 sm:grid-cols-2">{alternatives.map((product) => <a key={product.slug} href={`/collection/${product.slug}`} className="group rounded-lg border border-champagne/18 bg-ivory/42 p-5 transition hover:border-champagne/48 hover:bg-white/64"><span className="text-xs uppercase tracking-[0.2em] text-charcoal/40">Alternative</span><h3 className="editorial-title mt-2 text-2xl text-charcoal">{product.name}</h3><p className="mt-2 text-sm leading-6 text-charcoal/56">{product.shortDescription}</p></a>)}</div></div>
+      <div className="relative mt-10 border-t border-champagne/20 pt-8"><p className="text-xs uppercase tracking-[0.28em] text-champagne">Also in your light</p><div className="mt-5 grid gap-3 sm:grid-cols-2">{alternatives.map((product) => <Link key={product.slug} href={`/collection/${product.slug}`} className="group rounded-lg border border-champagne/18 bg-ivory/42 p-5 transition hover:border-champagne/48 hover:bg-white/64 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne"><span className="text-xs uppercase tracking-[0.2em] text-charcoal/50">Alternative</span><h3 className="editorial-title mt-2 text-2xl text-charcoal">{product.name}</h3><p className="mt-2 text-sm leading-6 text-charcoal/64">{product.shortDescription}</p></Link>)}</div></div>
     </div>
   );
 }
@@ -109,14 +110,14 @@ export function ScentFinder() {
   }
   const question = questions[step];
   return (
-    <div className="finder-panel mx-auto max-w-4xl rounded-[2rem] border border-white/70 bg-white/28 p-5 shadow-[0_30px_100px_rgba(91,67,37,0.12)] backdrop-blur-xl sm:p-10 md:p-14">
+    <div className="finder-panel mx-auto max-w-4xl rounded-2xl border border-white/70 bg-white/28 p-5 shadow-[0_30px_100px_rgba(91,67,37,0.12)] backdrop-blur-xl sm:rounded-[2rem] sm:p-10 md:p-14">
       <QuizProgress step={step} />
       <div key={step} className="finder-question-enter">
         <p className="text-xs uppercase tracking-[0.3em] text-champagne">{question.eyebrow}</p>
         <h2 className="editorial-title mt-4 max-w-2xl text-4xl leading-tight text-charcoal sm:text-5xl">{question.prompt}</h2>
         <div className="mt-9 grid gap-3 sm:grid-cols-2">{question.options.map((option, index) => <QuizOption key={option.label} option={option} index={index} onSelect={() => select(option)} />)}</div>
       </div>
-      {step > 0 ? <button type="button" onClick={() => { setAnswers((current) => current.slice(0, -1)); setStep((current) => current - 1); }} className="mt-8 text-xs uppercase tracking-[0.2em] text-charcoal/42 transition hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne">← Previous ritual</button> : null}
+      {step > 0 ? <button type="button" onClick={() => { setAnswers((current) => current.slice(0, -1)); setStep((current) => current - 1); }} className="mt-8 min-h-11 rounded-full px-2 text-xs uppercase tracking-[0.2em] text-charcoal/58 transition hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne">← Previous ritual</button> : null}
     </div>
   );
 }

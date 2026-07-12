@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/Button";
 import { navItems } from "@/lib/data";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
@@ -31,6 +33,7 @@ export function Navbar() {
             <Link
               key={item.label}
               href={item.href}
+              aria-current={item.href === pathname ? "page" : undefined}
               className="rounded-full px-4 py-2 text-sm text-charcoal/68 transition hover:bg-white/46 hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
             >
               {item.label}
@@ -70,6 +73,7 @@ export function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
+                aria-current={item.href === pathname ? "page" : undefined}
                 onClick={() => setIsOpen(false)}
                 className="rounded-lg px-4 py-3 text-sm text-charcoal/74 transition hover:bg-white/52 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
               >

@@ -9,7 +9,7 @@ export function Footer() {
       <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-champagne/12 blur-3xl" />
       <div className="section-shell relative grid gap-10 py-12 md:grid-cols-[1.1fr_0.8fr_1fr] md:py-16">
         <div>
-          <Link href="#top" className="inline-flex items-end gap-3">
+          <Link href="/" className="inline-flex items-end gap-3">
             <span className="editorial-title text-4xl">NŪRÉ</span>
             <span className="arabic-mark pb-1 text-sm text-ivory/62">نوري</span>
           </Link>

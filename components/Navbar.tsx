@@ -15,7 +15,7 @@ export function Navbar() {
         className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border border-white/64 bg-ivory/72 px-4 py-3 shadow-pearl backdrop-blur-xl md:px-5"
       >
         <Link
-          href="#top"
+          href="/"
           className="flex min-w-0 items-center gap-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne"
           aria-label="NŪRÉ homepage"
         >
@@ -39,7 +39,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center lg:flex">
-          <Button href="#collection" variant="secondary" className="min-h-10 px-5">
+          <Button href="/collection" variant="secondary" className="min-h-10 px-5">
             Explore Collection
           </Button>
         </div>
@@ -77,7 +77,7 @@ export function Navbar() {
               </Link>
             ))}
             <Button
-              href="#collection"
+              href="/collection"
               onClick={() => setIsOpen(false)}
               className="mt-2 w-full"
             >

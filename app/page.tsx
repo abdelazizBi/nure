@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -85,7 +86,7 @@ export default function Home() {
               from oud, musk, amber, saffron, rose, and desert botanicals.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button href="#collection" data-spray-trigger>
+              <Button href="/collection" data-spray-trigger>
                 Explore Collection
               </Button>
               <Button href="#scent-finder" variant="secondary">
@@ -177,6 +178,11 @@ export default function Home() {
               <ProductTiltCard
                 key={perfume.name}
               >
+                <Link
+                  href={`/collection/${perfume.slug}`}
+                  className="absolute inset-0 z-20 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne"
+                  aria-label={`View ${perfume.name}`}
+                />
                 <div className="card-lux-glow" aria-hidden="true" />
                 <div className="absolute inset-x-6 top-4 h-px bg-gradient-to-r from-transparent via-champagne/44 to-transparent opacity-0 transition duration-700 group-hover:opacity-100" />
                 <div
@@ -189,7 +195,7 @@ export default function Home() {
                     image={perfume.image}
                   />
                 </div>
-                <div className="pt-6">
+                <div className="pointer-events-none relative z-30 pt-6">
                   <div className="flex items-center justify-between gap-4 text-[0.68rem] uppercase tracking-[0.22em] text-charcoal/42">
                     <span>{perfume.category}</span>
                     <span>{perfume.volume}</span>
@@ -213,6 +219,13 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
+                  <Button
+                    href={`/collection/${perfume.slug}`}
+                    variant="ghost"
+                    className="pointer-events-auto relative z-30 mt-5 min-h-10 px-0 text-champagne"
+                  >
+                    Discover
+                  </Button>
                 </div>
               </ProductTiltCard>
             ))}
@@ -349,7 +362,7 @@ export default function Home() {
                 </div>
               ))}
             </StaggerReveal>
-            <Button href="#signature" className="noor-cta mt-9 border-champagne bg-ivory text-charcoal">
+            <Button href="/collection/noor-elixir" className="noor-cta mt-9 border-champagne bg-ivory text-charcoal">
               Discover Noor Elixir
             </Button>
           </FadeReveal>

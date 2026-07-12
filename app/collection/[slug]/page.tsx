@@ -139,8 +139,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href="/collection">Back to Collection</Button>
-              <Button href="/#scent-finder" variant="secondary">
-                Future Scent Finder
+              <Button href="/scent-finder" variant="secondary">
+                Find Your Scent
               </Button>
             </div>
           </FadeReveal>

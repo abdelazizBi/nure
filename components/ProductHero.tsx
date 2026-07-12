@@ -53,7 +53,7 @@ export function ProductHero({ product }: { product: Product }) {
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="/collection">Back to Collection</Button>
-            <Button href="/#scent-finder" variant={isDark ? "secondary" : "secondary"}>
+            <Button href="/scent-finder" variant={isDark ? "secondary" : "secondary"}>
               Find Your Scent
             </Button>
           </div>

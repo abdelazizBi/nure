@@ -31,7 +31,7 @@ export type Product = {
 
 export const navItems = [
   { label: "Collection", href: "/collection" },
-  { label: "Scent Finder", href: "/#scent-finder" },
+  { label: "Scent Finder", href: "/scent-finder" },
   { label: "The Maison", href: "/#maison" },
   { label: "Rituals", href: "/#rituals" },
 ];

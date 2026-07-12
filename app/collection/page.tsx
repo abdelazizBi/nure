@@ -90,8 +90,8 @@ export default function CollectionPage() {
             </p>
             <div className="soft-line opacity-60" />
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button href="/#scent-finder" className="border-ivory bg-ivory text-charcoal">
-                Future Scent Finder
+              <Button href="/scent-finder" className="border-ivory bg-ivory text-charcoal">
+                Find Your Scent
               </Button>
               <Button href="/#maison" variant="secondary" className="border-ivory/20 bg-white/8 text-ivory">
                 Maison Story

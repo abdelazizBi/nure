@@ -89,7 +89,7 @@ export default function Home() {
               <Button href="/collection" data-spray-trigger>
                 Explore Collection
               </Button>
-              <Button href="#scent-finder" variant="secondary">
+              <Button href="/scent-finder" variant="secondary">
                 Find Your Scent
               </Button>
             </div>
@@ -386,7 +386,7 @@ export default function Home() {
                 Answer a few questions and discover your NŪRÉ signature.
               </p>
             </div>
-            <Button href="#scent-finder" className="md:justify-self-end">
+            <Button href="/scent-finder" className="md:justify-self-end">
               Start Scent Finder
             </Button>
           </div>

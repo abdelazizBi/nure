@@ -5,7 +5,7 @@ A fictional luxury Arabic fragrance experience exploring modern oriental perfume
 [View the live experience](https://nure-nu.vercel.app/)
 
 <p align="center">
-  <img src="public/images/nure/hero-bottle.png" alt="NŪRÉ perfume bottle" width="520" />
+  <img src="public/preview.png" alt="NŪRÉ perfume brand" width="520" />
 </p>
 
 ## Overview
